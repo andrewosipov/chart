@@ -1,18 +1,12 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import Echarts from 'echarts-for-react';
+import getOptions from './options';
 import { theme } from '../../../config';
 
-const getStyles = currentTheme => (
-    StyleSheet.create({
-        container: {
-            width: '95%',
-            height: '90%',
-            display: 'flex',
-            justifyContent: 'center',
-        },
-    })
-);
-
-export default ({ currentTheme }) => (
-    <View style={getStyles(currentTheme).container}></View>
+export default ({ data }) => (
+    <Echarts
+        option={getOptions(data, theme)}
+        style={{ height: '450px', width: '100%' }}
+        className="react_for_echarts"
+    />
 );

@@ -1,20 +1,13 @@
-import get from 'lodash/get';
-import * as request from '../utils/request';
+import moment from 'moment';
+import data from '../fixtures';
 
 class Data {
-    get = payload => (
-        request
-            .get({
-                url: '/getData',
-                params: payload,
-            })
-            .then(response => response.data)
-            .catch(error => get(
-                error,
-                'response.data.Message',
-                'Не удалось получить данные',
-            ))
-    )
+    get = async payload => {
+        return data.Data.map(item => ({
+            ...item,
+            time: moment(item.time * 1000).format('DD-MM-Y'),
+        }));
+    }
 }
 
 export default new Data();

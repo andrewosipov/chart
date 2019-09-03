@@ -1,6 +1,6 @@
 import data from '../fixtures';
 
-export const get = ({ url, params }) => (
+export const get = async ({ url, params }) => (
     new Promise(() => data)
 );
 

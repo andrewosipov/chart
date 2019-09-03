@@ -2,14 +2,12 @@ import {
     FETCH_DATA_SUCCESS,
 } from '../actions/data';
 
-const initialState = {};
+const initialState = [];
 
 export default function (state = initialState, { type, payload }) {
     switch (type) {
         case FETCH_DATA_SUCCESS: {
-            return {
-                ...payload,
-            };
+            return [...payload];
         }
         default:
             return state;
